@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+/* button */
+
+
+.css-button-sliding-to-left--black {
+    min-width: 90px;
+    height: 34px;
+    color: #fff;
+    padding: 1px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border-radius: 5px;
+    z-index: 0;
+    background: #fff;
+    overflow: hidden;
+    border: 2px solid #212529;
+    color: #212529;
+  }
+  .css-button-sliding-to-left--black:hover {
+    color: #fff;
+  }
+  .css-button-sliding-to-left--black:hover:after {
+    width: 100%;
+  }
+  .css-button-sliding-to-left--black:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    transition: all 0.3s ease;
+    right: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    background: #212529;
+  }
+
+  .banner-register {
+    background-image: url("../../public/img/registerbanner.png");
+
+  }
+
