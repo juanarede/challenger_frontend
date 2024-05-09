@@ -20,12 +20,12 @@
 
         <li class="border-t md:border-none">
             <a href="#"
-                class="block md:inline-block px-3 py-3 no-underline text-grey-darkest hover:text-grey-darker">About</a>
+                class="block md:inline-block px-3 py-3 no-underline text-grey-darkest hover:text-grey-darker"> Catálogo</a>
         </li>
 
         <li class="border-t md:border-none">
             <a href="#"
-                class="block md:inline-block px-3 py-3 no-underline text-grey-darkest hover:text-grey-darker">Blog</a>
+                class="block md:inline-block px-3 py-3 no-underline text-grey-darkest hover:text-grey-darker">Sobre Nosotros</a>
         </li>
     </ul>
 
@@ -45,18 +45,20 @@
                     <span class="text-gray-800">{{ auth()->user()->name }}</span>
                     <span class="text-sm text-gray-400">{{ auth()->user()->email }}</span>
                 </div>
-                <div
-                    class="flex items-center justify-center  border-t">
-                    <a href="{{ route('dashboard') }}" class="inline-flex items-center py-3 text-gray-800 bg-white rounded-lg px-2" :class="{'justify-start': menu, 'justify-center': menu == false}">
+
+
+                <div class="p-2 hover:bg-blue-100 cursor-pointer">
+                    <a href="{{ route('dashboard') }}" class="inline-flex items-center py-3 text-gray-800 " :class="{'justify-start': menu, 'justify-center': menu == false}">
                         <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                         </svg>
-                        <span class="ml-2"  x-show="menu">Dashboard</span>
+                        <span class="ml-1 text-sm text-gray-400"  x-show="menu">Dashboard</span>
                       </a>
-
                 </div>
-                <div class="flex items-center justify-center p-4 text-blue-700 border-t">
-                    <a href="{{ route('logout') }}" id="logout">Logout</a>
+                <div class="p-2">
+                    <button class="flex items-center justify-center py-3 text-gray-800 border-t w-full css-button-sharp--black  ">
+                        <a href="{{ route('logout') }}" id="logout">Logout</a>
+                    </button>
                 </div>
             </div>
         @endauth
@@ -163,7 +165,7 @@
 
             <div class="py-3">
                 <div class="py-4 flex justify-between items-center">
-                    <h2 class="text-2xl font-semibold leading-tight">Phones</h2>
+                    <h2 class="text-2xl font-semibold leading-tight">Celulares</h2>
                     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                         <a href="{{ route('export') }}" class="btn btn-primary">Exportar a Excel</a>
                     </button>
@@ -175,16 +177,16 @@
                                 <tr>
                                     <th
                                         class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
-                                        Phone / Model</th>
+                                        Celulares / Modelos</th>
                                     <th
                                         class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
-                                        Description</th>
+                                        Descripción</th>
                                     <th
                                         class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
-                                        Price</th>
+                                        Precio</th>
                                     <th
                                         class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
-                                        Status</th>
+                                        Estado</th>
                                     <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100"></th>
                                 </tr>
                             </thead>

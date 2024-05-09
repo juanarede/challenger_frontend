@@ -105,6 +105,27 @@
   }
 
 
+  /* buttonlogout */
+
+  .css-button-sharp--black {
+    min-width: 130px;
+    height: 40px;
+    color: #fff;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+
+    outline: none;
+    border: 2px solid #212529;
+    background: #212529;
+  }
+  .css-button-sharp--black:hover {
+    background: #fff;
+    color: #212529
+  }
+
 
 
 
