@@ -396,6 +396,31 @@
 
 
 <script>
+
+// modal iniciar sesion
+
+
+function showLoginModal() {
+    var modal = document.getElementById("loginModal");
+    modal.classList.remove("hidden");
+}
+
+function closeLoginModal() {
+    var modal = document.getElementById("loginModal");
+    modal.classList.add("hidden");
+}
+
+window.addEventListener("click", function(event) {
+    var modal = document.getElementById("loginModal");
+    if (event.target === modal) {
+        closeLoginModal();
+    }
+});
+
+document.getElementById("closeLoginModal").addEventListener("click", function() {
+    closeLoginModal();
+});
+
     document.addEventListener("DOMContentLoaded", function() {
         @foreach ($productos as $key => $producto)
             const button{{ $key }} = document.querySelector(

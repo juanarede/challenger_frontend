@@ -107,13 +107,6 @@
 </div>
 @endif
 
-<script>
-
-
-
-
-
-    </script>
 
 
 
