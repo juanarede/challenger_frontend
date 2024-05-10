@@ -20,6 +20,7 @@ class InventariosTableSeeder extends Seeder
             DB::table('inventarios')->insert([
                 'ProductoID' => $i,
                 'CantidadDisponible' => $faker->numberBetween(1, 200),
+                'estatus' => $faker->boolean(),
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);

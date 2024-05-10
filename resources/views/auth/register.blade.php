@@ -33,17 +33,16 @@
             <p class="text-gray-100">
                 Regístrate para ver los mejores celulares en stock!!
             </p>
-            <form action="" class="sm:w-2/3 w-full px-4 lg:px-0 mx-auto">
+            <form method="POST" action="{{ route('register') }}" class="sm:w-2/3 w-full px-4 lg:px-0 mx-auto">
+                @csrf
                 <div class="pb-2 pt-4">
-                    <input type="text" id="name" name="name"
-                    value="{{ old('name') }}" required placeholder="Nombre" class="block w-full p-4 text-lg rounded-sm bg-black">
+                    <input type="text" id="name" name="name" value="{{ old('name') }}" required placeholder="Nombre" class="block w-full p-4 text-lg rounded-sm bg-black">
                     @error('name')
                     <div>{{ $message }}</div>
                 @enderror
                 </div>
                 <div class="pb-2 pt-4">
-                    <input class="block w-full p-4 text-lg rounded-sm bg-black" type="email" id="email" name="email"
-                    value="{{ old('email') }}" required placeholder="Email">
+                    <input class="block w-full p-4 text-lg rounded-sm bg-black" type="email" id="email" name="email" value="{{ old('email') }}" required placeholder="Email">
                     @error('email')
                     <div>{{ $message }}</div>
                 @enderror
@@ -56,12 +55,12 @@
                 </div>
 
                 <div class="px-4 pb-2 pt-1">
-                    <button class="uppercase block w-full p-2 text-lg rounded-full bg-indigo-500 hover:bg-indigo-600 focus:outline-none">Registrar</button>
+                    <button type="submit" class="uppercase block w-full p-2 text-lg rounded-full bg-indigo-500 hover:bg-indigo-600 focus:outline-none">Registrar</button>
                 </div>
 
                 <div class="p-4 text-center right-0 left-0 flex justify-center space-x-4 mt-16 lg:hidden ">
                     <a href="#">
-                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#ffffff" d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
                     </a>
                     <a href="#">
                         <svg fill="#fff" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
@@ -76,27 +75,19 @@
     </div>
 </section>
 
-<div id="successModal" class="fixed inset-0 z-50 flex items-center justify-center hidden">
+@if (session('registro_exitoso'))
+<div id="successModal" class="fixed inset-0 z-50 flex items-center justify-center">
     <div class="absolute inset-0 bg-gray-900 opacity-75"></div>
     <div class="bg-white p-8 rounded-lg z-10">
         <h2 class="text-2xl font-bold text-center mb-4">¡Registro exitoso!</h2>
-        <p class="text-lg text-center">Tu cuenta ha sido creada exitosamente.</p>
+        <p class="text-lg text-center">{{ session('registro_exitoso') }}</p>
     </div>
 </div>
+@endif
 
 
-<script>
-    function showSuccessModalAndRedirect() {
-        document.getElementById('successModal').classList.remove('hidden');
-        setTimeout(function() {
-            window.location.href = '/';
-        }, 3000);
-    }
-    document.querySelector('form').addEventListener('submit', function(event) {
-        event.preventDefault();
-        showSuccessModalAndRedirect();
-    });
-</script>
+
+
 
 {{-- <div class="h-screen md:flex">
     <div

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('ProductoID');
             $table->foreign('ProductoID')->references('id')->on('productos');
             $table->integer('CantidadDisponible');
+            $table->boolean('estatus')->default(false);
             $table->timestamps();
         });
     }

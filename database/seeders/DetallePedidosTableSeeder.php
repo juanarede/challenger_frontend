@@ -19,9 +19,9 @@ class DetallePedidosTableSeeder extends Seeder
         for ($i = 1; $i <= 40; $i++) {
             DB::table('detalle_pedidos')->insert([
                 'PedidoID' => $i,
-                'ProductoID' => $faker->numberBetween(1, 40), // Genera un ID de producto aleatorio entre 1 y 10 (ajusta según tus necesidades)
-                'Cantidad' => $faker->numberBetween(1, 10), // Genera una cantidad aleatoria entre 1 y 10
-                'PrecioUnitario' => $faker->randomFloat(2, 10, 100), // Genera un precio unitario aleatorio entre 10 y 100 con 2 decimales
+                'ProductoID' => $faker->numberBetween(1, 40),
+                'Cantidad' => $faker->numberBetween(1, 10),
+                'PrecioUnitario' => $faker->randomFloat(2, 10, 100), 
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);

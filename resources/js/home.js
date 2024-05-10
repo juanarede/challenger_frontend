@@ -1,34 +1,44 @@
 import.meta.glob([ '../images/**', ]);
 
-const avatarButton = document.getElementById('avatarButton');
-const modal = document.getElementById('modal');
-const logoutButton = document.getElementById('logout');
-const registerLoginButtons = document.getElementById('registerLoginButtons');
 
-avatarButton.addEventListener('click', () => {
-    modal.classList.toggle('hidden');
+const avatarButtons = document.querySelectorAll('.avatarButton');
+const modals = document.querySelectorAll('.modal');
+const logoutButtons = document.querySelectorAll('.logoutButton');
+const registerLoginButtons = document.querySelectorAll('.registerLoginButtons');
+avatarButtons.forEach((button, index) => {
+    button.addEventListener('click', () => {
+
+        modals[index].classList.toggle('hidden');
+    });
 });
 
-logoutButton.addEventListener('click', () => {
-    avatarButton.classList.add('hidden');
+logoutButtons.forEach((button, index) => {
+    button.addEventListener('click', () => {
 
-    modal.classList.add('hidden');
+        avatarButtons[index].classList.add('hidden');
 
-    registerLoginButtons.classList.remove('hidden');
+        modals[index].classList.add('hidden');
+
+        registerLoginButtons[index].classList.remove('hidden');
+    });
 });
-
-
-
 
 document.addEventListener('click', (event) => {
-    if (!avatarButton.contains(event.target) && !modal.contains(event.target)) {
-        modal.classList.add('hidden');
-    }
+    avatarButtons.forEach((button, index) => {
+        if (!button.contains(event.target) && !modals[index].contains(event.target)) {
+            modals[index].classList.add('hidden');
+        }
+    });
 });
 
 
 
-// modal status
+
+
+
+
+
+
 
 
 

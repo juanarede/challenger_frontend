@@ -34,22 +34,26 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
-
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
         ]);
 
-        User::create([
+        $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
         ]);
 
-        return redirect('/')->with('success', '¡Registro exitoso! Inicia sesión para continuar.');
-    }
+        if ($user) {
+            return redirect('/')->with('registro_exitoso', '¡Registro exitoso! Tu cuenta ha sido creada exitosamente.');
+        }
 
+
+        return redirect()->back()->withInput()->withErrors(['error' => 'Ha ocurrido un error al procesar tu registro.']);
+    }
+    
     public function registration()
     {
         return view('auth.register');

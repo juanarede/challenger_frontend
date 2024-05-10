@@ -107,36 +107,14 @@
 </div>
 @endif
 
-
-
-<!-- Agrega esto al final de tu vista home.blade.php -->
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
-    $(document).ready(function () {
-        // Escucha el clic en los enlaces de paginación
-        $(document).on('click', '.pagination a', function (event) {
-            event.preventDefault();
 
-            // Obtiene la URL del enlace
-            var page = $(this).attr('href').split('page=')[1];
 
-            // Realiza una petición AJAX para cargar la página
-            $.ajax({
-                url: '?page=' + page,
-                type: 'GET',
-                success: function (data) {
-                    // Actualiza el contenido de la sección de productos con la nueva página
-                    $('#productos').html(data);
-                },
-                error: function (xhr, status, error) {
-                    // Maneja errores si es necesario
-                    console.error(error);
-                }
-            });
-        });
-    });
-</script>
+
+
+
+    </script>
+
 
 
 
